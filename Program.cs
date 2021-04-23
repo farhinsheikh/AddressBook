@@ -27,6 +27,20 @@ namespace AddressBookApp
             String phoneNumber = Console.ReadLine();
             Person person1 = new Person(firstName, lastName, address, city, state, zip, phoneNumber);
             personsList.Add(person1);
+            Console.WriteLine("Added Successfully");
+        }
+        public Person getObjectWithName()
+        {
+            Console.WriteLine("enter first name of person ");
+            String firstName = Console.ReadLine();
+            foreach (Person person in personsList)
+            {
+                if (person.getFirstName().Equals(firstName))
+                {
+                    return person;
+                }
+            }
+            return null;
         }
 
         public void editperson()
@@ -94,35 +108,47 @@ namespace AddressBookApp
                 Console.WriteLine(person);
             }
         }
-        static void Main(string[] args)
+        public void deletePerson()
         {
-            Console.WriteLine("Welcome to Addresss Book Program!");
-            int quit = 0;
-            Program addressBook = new Program();
-            do
-            {
-                Console.WriteLine("enter 1 for adding person to address book");
-                Console.WriteLine("enter 2 for editing person");
-                Console.WriteLine("enter 3 to quit");
-                int option = Convert.ToInt32(Console.ReadLine());
-
-                switch (option)
-                {
-                    case 1:
-                        addressBook.addPerson();
-                        break;
-                    case 2:
-                        addressBook.displayAddressBook();
-                        addressBook.editperson();
-                        break;
-                    case 3:
-                        quit = 1;
-                        break;
-                }
-            } while (quit == 0);
-            addressBook.displayAddressBook();
-
+            Person personToDelete = getObjectWithName();
+            personsList.Remove(personToDelete);
         }
+          
+            static void Main(string[] args)
+            {
+                int quit = 0;
+                Program addressBook = new Program();
+                do
+                {
+                    Console.WriteLine("enter 1 for adding person to address book");
+                    Console.WriteLine("enter 2 for editing person");
+                    Console.WriteLine("enter 3 for deleting person");
+                    Console.WriteLine("enter 4 to quit");
+                    int option = Convert.ToInt32(Console.ReadLine());
+
+                    switch (option)
+                    {
+                        case 1:
+                            addressBook.addPerson();
+                            break;
+                        case 2:
+                            addressBook.displayAddressBook();
+                            addressBook.editperson();
+                            break;
+                        case 3:
+                           addressBook.displayAddressBook();
+                            addressBook.deletePerson();
+                            break;
+                        case 4:
+                            quit = 1;
+                            break;
+                    }
+                } while (quit == 0);
+               // addressBook.displayAddressBook();
+
+
+            }
+        
     }
-    }
+}
 

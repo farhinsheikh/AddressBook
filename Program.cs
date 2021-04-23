@@ -29,10 +29,9 @@ namespace AddressBookApp
             personsList.Add(person1);
             Console.WriteLine("Added Successfully");
         }
-        public Person getObjectWithName()
+        public Person getObjectWithName(string firstName)
         {
-            Console.WriteLine("enter first name of person ");
-            String firstName = Console.ReadLine();
+           
             foreach (Person person in personsList)
             {
                 if (person.getFirstName().Equals(firstName))
@@ -110,7 +109,11 @@ namespace AddressBookApp
         }
         public void deletePerson()
         {
-            Person personToDelete = getObjectWithName();
+            Console.WriteLine("enter first name of person ");
+            string firstName = Console.ReadLine();
+            Console.WriteLine(firstName);
+
+            Person personToDelete = getObjectWithName(firstName);
             personsList.Remove(personToDelete);
         }
           
@@ -144,7 +147,7 @@ namespace AddressBookApp
                             break;
                     }
                 } while (quit == 0);
-               // addressBook.displayAddressBook();
+                 addressBook.displayAddressBook();
 
 
             }

@@ -18,7 +18,7 @@ namespace AddressBookApp
             this.firstName = firstName;
             this.lastName = lastName;
             this.address = address;
-            this.address = city;
+            this.city = city;
             this.state = state;
             this.zip = zip;
             this.phoneNo = phoneNo;

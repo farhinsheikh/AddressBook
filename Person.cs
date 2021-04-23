@@ -11,9 +11,9 @@ namespace AddressBookApp
         String address;
         String city;
         String state;
-        int zip;
+        String zip;
         String phoneNo;
-        public Person(String firstName, String lastName, String address, String city, String state, int zip, String phoneNo)
+        public Person(String firstName, String lastName, String address, String city, String state, String zip, String phoneNo)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -27,7 +27,15 @@ namespace AddressBookApp
         {
             return this.firstName;
         }
+        public String SetFirstName()
+        {
+            return this.firstName;
+        }
         public String getLastName()
+        {
+            return this.lastName;
+        }
+        public String SetLastName()
         {
             return this.lastName;
         }
@@ -55,11 +63,11 @@ namespace AddressBookApp
         {
             this.city = city;
         }
-        public int getzip()
+        public String getzip()
         {
             return this.zip;
         }
-        public void setZip(int zip)
+        public void setZip(String zip)
         {
             this.zip = zip;
         }
